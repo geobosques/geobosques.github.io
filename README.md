@@ -1,7 +1,7 @@
-# Cool Map 8-)
+# Cool Map
 
 To do list:
 
-- Load .js files according as the user requests.
+- Load .js files according to user requests.
 - Add the rest of the regions
 - Add the rest of species
