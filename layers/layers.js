@@ -85,21 +85,17 @@ var lyr_PeumosRM_5 = new ol.layer.Vector({
 
 lyr_GoogleHybrid_0.setVisible(true);lyr_Molle_RM_1.setVisible(false);lyr_Bellotodelnorte_RM_2.setVisible(false);lyr_Maitn_RM_3.setVisible(false);lyr_Bolln_RM_4.setVisible(false);lyr_PeumosRM_5.setVisible(false);
 var layersList = [lyr_GoogleHybrid_0,lyr_Molle_RM_1,lyr_Bellotodelnorte_RM_2,lyr_Maitn_RM_3,lyr_Bolln_RM_4,lyr_PeumosRM_5];
-lyr_Molle_RM_1.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
-lyr_Bellotodelnorte_RM_2.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
-lyr_Maitn_RM_3.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
-lyr_Bolln_RM_4.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
-lyr_PeumosRM_5.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
-lyr_Molle_RM_1.set('fieldImages', {'ESPECIE': '', });
-lyr_Bellotodelnorte_RM_2.set('fieldImages', {'ESPECIE': '', });
-lyr_Maitn_RM_3.set('fieldImages', {'ESPECIE': '', });
-lyr_Bolln_RM_4.set('fieldImages', {'ESPECIE': '', });
-lyr_PeumosRM_5.set('fieldImages', {'ESPECIE': '', });
-lyr_Molle_RM_1.set('fieldLabels', {'ESPECIE': 'no label', });
-lyr_Bellotodelnorte_RM_2.set('fieldLabels', {'ESPECIE': 'no label', });
-lyr_Maitn_RM_3.set('fieldLabels', {'ESPECIE': 'no label', });
-lyr_Bolln_RM_4.set('fieldLabels', {'ESPECIE': 'no label', });
-lyr_PeumosRM_5.set('fieldLabels', {'ESPECIE': 'no label', });
+
+layersList.forEach(
+    function (layer){
+        if (layer !== layersList[0]){
+            layer.set('fieldAliases', {'ESPECIE': 'ESPECIE', });
+            layer.set('fieldImages', {'ESPECIE': '', });
+            layer.set('fieldLabels', {'ESPECIE': 'no label', });
+        }
+    }
+)
+
 lyr_PeumosRM_5.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
